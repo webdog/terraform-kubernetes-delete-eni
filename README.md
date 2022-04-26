@@ -22,6 +22,7 @@ module "remove_eni" {
 |------|---------|
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | 3.66.0 |
 | <a name="requirement_null"></a> [null](#requirement\_null) | 3.1.1 |
+| <a href="https://aws.amazon.com/cli/"></a> [AWS CLI](https://aws.amazon.com/cli) | 2.5.3 |
 
 ## Providers
 
