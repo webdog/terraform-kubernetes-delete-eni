@@ -43,9 +43,8 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_eks_cluster_primary"></a> [eks\_cluster\_primary](#input\_eks\_cluster\_primary) | n/a | `any` | n/a | yes |
-| <a name="input_region"></a> [region](#input\_region) | n/a | `any` | n/a | yes |
-| <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | n/a | `any` | n/a | yes |
+| <a name="input_region"></a> [region](#input\_region) | AWS region where this module is used | `string` | n/a | yes |
+| <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | VPC ID that is used in this module | `string` | n/a | yes |
 
 ## Outputs
 
