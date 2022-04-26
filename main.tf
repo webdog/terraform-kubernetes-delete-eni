@@ -1,6 +1,6 @@
 locals {
   vpc_id              = var.vpc_id
-  region              = var.region ? can(var.region): "us-east-1"
+  region              = var.region
 }
 
 resource "null_resource" "cleanup" {
