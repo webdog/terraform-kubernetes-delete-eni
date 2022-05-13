@@ -1,10 +1,10 @@
 ## terraform-kubernetes-delete-eni
 
-A utility module to destroy the Elastic Network Interfaces associated with Elastic Load Balancers that are created by EKS. Terraform is unaware of these resources, and can become stuck during destroy when attempting to remove the subnets from the EKS VPC which still has ENIs attached to an Elastic Load Balancer. A re-run of terraform destroy usually resolves this, but this module helps terraform complete successfully on the first time.
+A utility module to destroy the Elastic Network Interfaces associated with Elastic Load Balancers that are created by EKS. Terraform is unaware of these resources, and can become stuck during destroy when attempting to remove subnets from the EKS-deployed VPC which still has ENIs attached to an Elastic Load Balancer. A re-run of terraform destroy usually resolves this, but this takes a lot of time as the first destroy will take 20 minutes with default settings for terraform to timeout. This module saves you that time and effort.
 
 There are known issues with delays in the AWS API, so this script is not always successful, and may require the manual removing of resources (Which would have to have been removed anyway, regardless of this utility), or re-running the module to finish removing resources from your account. This usually occurs when there is latency internal to the AWS API updating an ENIs status to *Available*.
 
-This script intakes a VPC ID and region, iterating through the security groups
+This script intakes a VPC ID and region, iterating through the security groups until it finds any ENIs that are associated with a Kubernetes-deployed Elastic Load Balancer. It then removes them and checks every so often as to the state of the delete request. This module is designed to remove resources only during a terraform destroy event.
 
 ```hcl
 
