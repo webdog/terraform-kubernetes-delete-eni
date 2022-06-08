@@ -9,7 +9,7 @@ This script intakes a VPC ID and region, iterating through the security groups u
 ```hcl
 
 module "remove_eni" {
-    source = "github.com/webdog/terraform-kubernetes/delete-eni"
+    source = "github.com/webdog/terraform-kubernetes-delete-eni"
     vpc_id = "your_vpc_id"
     region = "us-east-1"
 }
