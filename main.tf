@@ -20,4 +20,7 @@ resource "null_resource" "cleanup" {
     }
     command = "bash cleanup-load-balancers.sh"
   }
+  lifecycle {
+    ignore_changes = all
+  }
 }
